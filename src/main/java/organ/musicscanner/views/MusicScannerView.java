@@ -1,6 +1,7 @@
 package organ.musicscanner.views;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -25,7 +26,7 @@ public class MusicScannerView {
     public VBox createLayout() {
         VBox root = new VBox(10);
         root.setPadding(new Insets(10));
-
+        root.setAlignment(Pos.CENTER);
         Label fileLabel = new Label("Ввод аудио файла");
         Button browseButton = new Button("Выберите файл");
         Label statusLabel = new Label(" ");
