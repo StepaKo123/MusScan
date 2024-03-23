@@ -2,21 +2,20 @@ package organ.musicscanner.controllers;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import organ.musicscanner.views.MusicScannerView;
+import organ.musicscanner.views.PDFScannerView;
 
-public class MusicScannerController {
+public class PDFScannerController {
     private final Stage primaryStage;
 
-    public MusicScannerController(Stage primaryStage) {
+    public PDFScannerController(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
     public void init() {
-        MusicScannerView view = new MusicScannerView();
-        view.setController(this);
+        PDFScannerView view = new PDFScannerView();
 
         Scene scene = new Scene(view.createLayout(), 800, 500);
-        primaryStage.setTitle("Convert Audio");
+        primaryStage.setTitle("Convert PDF");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -28,4 +27,3 @@ public class MusicScannerController {
         audioProcessingThread.start();
     }
 }
-

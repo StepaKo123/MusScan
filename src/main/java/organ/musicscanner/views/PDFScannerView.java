@@ -7,29 +7,30 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import java.io.File;
-
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import organ.musicscanner.Starter;
-import organ.musicscanner.controllers.MusicScannerController;
+import organ.musicscanner.controllers.PDFScannerController;
+import organ.musicscanner.controllers.StartController;
 import organ.musicscanner.xml_to_pdf.PDFConverter;
 
-public class MusicScannerView {
-    private Stage stage;
-    private MusicScannerController controller;
+import java.io.File;
+
+public class PDFScannerView {
+    private PDFScannerController controller;
     private TextField keyField;
     private TextField timeSignatureField;
+    private StartController startController;
+    private Stage stage;
 
-    public void setController(MusicScannerController controller) {
+    public void setController(PDFScannerController controller) {
         this.controller = controller;
     }
-
     public VBox createLayout() {
         VBox root = new VBox(10);
         root.setPadding(new Insets(10));
         root.setAlignment(Pos.CENTER);
-        Label fileLabel = new Label("Ввод аудио файла");
+        Label fileLabel = new Label("Ввод PDF файла");
         Button browseButton = new Button("Выберите файл");
         Label statusLabel = new Label(" ");
         Label optionsLabel = new Label("Параметры:");
@@ -64,11 +65,9 @@ public class MusicScannerView {
 
         return root;
     }
-
-    private void back(ActionEvent actionEvent) {
+    private void back(ActionEvent event){
         Starter.startStart();
     }
-
     private String getFileExtension(File file) {
         String name = file.getName();
         int lastIndexOfDot = name.lastIndexOf(".");
