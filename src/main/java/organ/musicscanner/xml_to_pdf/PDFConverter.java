@@ -7,5 +7,6 @@ public class PDFConverter {
     }
     public static boolean isPDF(File file) {
         return file != null && file.getName().toLowerCase().endsWith(".pdf");
+
     }
 }
